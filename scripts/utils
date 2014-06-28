@@ -1,0 +1,31 @@
+makeWeightEntry = function(weightInPounds, heightInInches, ageInYears)
+{
+  newRow=data.frame(Sys.Date(), weightInPounds, getBMRImperialMan(weightInPounds, heightInInches, ageInYears), getWeightLossCalorieLimitImperialMan(weightInPounds, heightInInches, ageInYears))
+  colnames(newRow) <- c("Date", "Weight (lbs)", "Basal Metabolic Rate", "Weight Loss Calorie Limit")
+  weightData <<- rbind(weightData, newRow)
+}
+
+makeDietEntry = function(food, caloriesConsumed, protien, carbs)
+{
+  newRow=data.frame(Sys.Date(), food, caloriesConsumed, protien, carbs)
+  colnames(newRow) <- c("Date", "Food Eaten", "Calories Consumed", "Protien (g)", "Carbs (g)")
+  foodData <<- rbind(foodData, newRow)
+}
+
+makeExerciseEntry = function(exercise, caloriesBurned)
+{
+  newRow=data.frame(Sys.Date(), exercise, caloriesBurned)
+  colnames("Date", "Exercise", "Calories Burned")
+  exerciseData <<- rbind(exerciseData, newRow)
+}
+
+
+getBMRImperialMan = function(weightInPounds, heightInInches, ageInYears)
+{
+return(66 + ( 6.23 * weightInPounds ) + ( 12.7 * heightInInches ) - ( 6.8 * ageInYears ))
+}
+
+getWeightLossCalorieLimitImperialMan = function(weightInPounds, heightInInches, ageInYears)
+{
+  return (getBMRImperialMan(weightInPounds, heightInInches, ageInYears) - 500)
+}
