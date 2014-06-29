@@ -5,7 +5,7 @@ makeWeightEntry = function(weightInPounds, heightInInches, ageInYears)
   weightData <<- rbind(weightData, newRow)
 }
 
-makeDietEntry = function(food, caloriesConsumed, protien, carbs)
+makeFoodEntry = function(food, caloriesConsumed, protien, carbs)
 {
   newRow=data.frame(Sys.Date(), food, caloriesConsumed, protien, carbs)
   colnames(newRow) <- c("Date", "Food Eaten", "Calories Consumed", "Protien (g)", "Carbs (g)")
@@ -15,7 +15,7 @@ makeDietEntry = function(food, caloriesConsumed, protien, carbs)
 makeExerciseEntry = function(exercise, caloriesBurned)
 {
   newRow=data.frame(Sys.Date(), exercise, caloriesBurned)
-  colnames("Date", "Exercise", "Calories Burned")
+  colnames(newRow) <- c("Date", "Exercise", "Calories Burned")
   exerciseData <<- rbind(exerciseData, newRow)
 }
 
