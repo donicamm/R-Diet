@@ -29,3 +29,14 @@ getWeightLossCalorieLimitImperialMan = function(weightInPounds, heightInInches, 
 {
   return (getBMRImperialMan(weightInPounds, heightInInches, ageInYears) - 500)
 }
+
+
+getBMRImperialWoman = function(weightInPounds, heightInInches, ageInYears)
+{
+return(655 + ( 4.35 * weightInPounds ) + ( 4.7 * heightInInches ) - ( 4.7 * ageInYears ))
+}
+
+getWeightLossCalorieLimitImperialWoman = function(weightInPounds, heightInInches, ageInYears)
+{
+  return (getBMRImperialMan(weightInPounds, heightInInches, ageInYears) - 500)
+}
